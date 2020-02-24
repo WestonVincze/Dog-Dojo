@@ -1,0 +1,11 @@
+﻿@model DoggieBagViewModel
+
+@if (Model.DoggieBag.DoggieBagItems.Count > 0)
+{
+  <li class="nav-item">
+    <a class="nav-link">
+      <i class="fa fa-fw fa-shopping-bag"></i>
+      @Model.DoggieBag.DoggieBagItems.Count
+    </a>
+  </li>
+}

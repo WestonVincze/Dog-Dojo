@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Breed>
+
+<li class="nav-item dropdown">
+  <a asp-controller="Dog"
+     asp-action="Index"
+     class="nav-link dropdown-toggle" data-toggle="dropdown">Dogs<b class="caret"></b></a>
+  <ul class="dropdown-menu">
+    @foreach (var breed in Model)
+    {
+      <li class="dropdown-item">
+        <a asp-controller="Dog" asp-action="List"
+           asp-route-breed="@breed.BreedName">@breed.BreedName</a>
+        </li>
+      }
+    <li class="divider"></li>
+    <li class="dropdown-item">
+      <a asp-controller="Dog" asp-action="List" asp-route-breed="">View all dogs</a>
+    </li>
+    @* TODO: allow breed names with spaces to function properly *@
+  </ul>
+</li>

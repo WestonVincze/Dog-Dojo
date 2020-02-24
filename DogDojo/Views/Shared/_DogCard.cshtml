@@ -1,0 +1,22 @@
+﻿@model Dog
+
+<div class="col-sm-4 col-lg-4 col-md-4">
+  <div class="img-thumbnail">
+    <img src="dog.ImageThumbnailUrl" alt="" />
+    <div class="caption">
+      <h3 class="pull-right">@Model.Price.ToString("c")</h3>
+      <h3>
+        <a asp-controller="Dog" asp-action="Details" asp-route-id="@Model.DogId">@Model.Name</a>
+      </h3>
+      <h3>@Model.ShortDescription</h3>
+    </div>
+    <div class="addToCart">
+      <p class="button">
+        <a class="btn btn-primary"
+           asp-controller="DoggieBag"
+           asp-action="AddToDoggieBag"
+           asp-route-dogId="@Model.DogId">Add to bag</a>
+      </p>
+    </div>
+  </div>
+</div>

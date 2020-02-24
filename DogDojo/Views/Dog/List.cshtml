@@ -1,0 +1,9 @@
+﻿@model DogListViewModel
+<h1>@Model.CurrentBreed</h1>
+
+<div class="row">
+  @foreach (var dog in Model.Dogs)
+  {
+    <partial name="_DogCard" model="dog" />
+  }
+</div>
