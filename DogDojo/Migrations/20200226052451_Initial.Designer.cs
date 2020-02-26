@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DogDojo.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200225162238_Initial")]
+    [Migration("20200226052451_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
