@@ -1,22 +1,57 @@
 ﻿@model Dog
+  <div class="col-sm-6 col-lg-4">
 
-<div class="col-sm-4 col-lg-4 col-md-4">
-  <div class="img-thumbnail">
-    <img src="dog.ImageThumbnailUrl" alt="" />
-    <div class="caption">
-      <h3 class="pull-right">@Model.Price.ToString("c")</h3>
-      <h3>
-        <a asp-controller="Dog" asp-action="Details" asp-route-id="@Model.DogId">@Model.Name</a>
-      </h3>
-      <h3>@Model.ShortDescription</h3>
-    </div>
-    <div class="addToCart">
-      <p class="button">
-        <a class="btn btn-primary"
-           asp-controller="DoggieBag"
-           asp-action="AddToDoggieBag"
-           asp-route-dogId="@Model.DogId">Add to bag</a>
-      </p>
-    </div>
-  </div>
+
+    <div class="dog-card">
+      <div class="dog-card-title">
+        <h2>
+          <a asp-controller="Dog" asp-action="Details" asp-route-id="@Model.DogId">
+            @Model.Name
+          </a>
+        </h2>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <div class="card-image">
+            <a asp-controller="Dog" asp-action="Details" asp-route-id="@Model.DogId">
+              <img class="img-fluid" src="@Model.ImageUrl" alt="" />
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row ">
+        <div class="col-10 offset-1">
+          <table class="table table-sm">
+            <tr>
+              <td>Age</td>
+              <td class="text-right">@Model.Age</td>
+            </tr>
+            <tr>
+              <td>Sex</td>
+              <td class="text-right">@Model.Sex</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <h4 class="text-center">@Model.Price.ToString("c")</h4>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 text-center">
+          <a class="btn btn-primary"
+             asp-controller="DoggieBag"
+             asp-action="AddToDoggieBag"
+             asp-route-dogId="@Model.DogId">
+            <i class="fa fa-fw fa-shopping-bag orange-text"></i>
+            Add to bag
+          </a>
+        </div>
+      </div>
 </div>
+  </div>

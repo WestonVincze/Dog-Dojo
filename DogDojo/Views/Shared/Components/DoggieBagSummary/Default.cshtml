@@ -3,8 +3,8 @@
 @if (Model.DoggieBag.DoggieBagItems.Count > 0)
 {
   <li class="nav-item">
-    <a class="nav-link">
-      <i class="fa fa-fw fa-shopping-bag"></i>
+    <a asp-controller="Order" asp-action="Checkout" class="nav-link">
+      <i class="fa fa-fw fa-shopping-bag orange-text"></i>
       @Model.DoggieBag.DoggieBagItems.Count
     </a>
   </li>

@@ -1,5 +1,5 @@
 ﻿@model DogListViewModel
-<h1>@Model.CurrentBreed</h1>
+<h1>@(Model.CurrentBreed + 's')</h1>
 
 <div class="row">
   @foreach (var dog in Model.Dogs)

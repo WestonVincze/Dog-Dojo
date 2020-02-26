@@ -29,7 +29,7 @@ namespace DogDojo.Controllers
       if (string.IsNullOrEmpty(breed))
       {
         dogs = _dogRepository.AllDogs.OrderBy(d => d.DogId);
-        currentBreed = "All dogs";
+        currentBreed = "All dog";
       }
       else
       {

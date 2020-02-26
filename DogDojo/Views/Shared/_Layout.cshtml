@@ -4,26 +4,28 @@
 <head>
   <meta name="viewport" content="width=device-width" />
   <title>@ViewBag.Title</title>
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
   <script src="~/lib/jquery/jquery.js"></script>
   <script src="~/lib/bootstrap/js/bootstrap.js"></script>
   <link href="~/Content/site.css" rel="stylesheet" />
+  <link rel="icon" href="~/images/favicon.ico" type="image/svg"/>
 </head>
 <body>
   <div class="container">
 
     <nav class="fixed-top navbar navbar-expand-md navbar-inverse navbar-dark">
-      <a href="#" class="navbar-brand">icon_here</a>
+      <a asp-controller="Home" asp-action="Index" class="navbar-brand">
+        <img src="~/images/DogDojoLogo.png" alt="DojoDog Logo" width="40" />
+      </a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div id="collapsibleNavbar" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li class="nav-item"><a asp-controller="Home" asp-action="Index" class="nav-link">Home</a></li>
+        <ul class="navbar-nav">
           @await Component.InvokeAsync("BreedMenu")
           @await Component.InvokeAsync("DoggieBagSummary")
           <li class="nav-item"><a asp-controller="Contact" asp-action="Index" class="nav-link">Contact</a></li>
@@ -33,16 +35,44 @@
     </nav>
 
     <div class="row">
-      <div class="col-md-3">
-        <p class="lead">
-          <img class="img-responsive" alt="Dog Dojo" src="~/images/DogDojoLogo.png" />
-        </p>
-      </div>
-      <div class="col-md-9">
+      <div class="col-lg-9 col-md-8">
         @RenderBody()
+      </div>
+      <div class="col-lg-3 col-md-4">
+        <div class="text-center">
+          <div class="row">
+            <div class="col-12">
+              <img class="img-fluid" alt="Dog Dojo" src="~/images/DogDojoLogo.gif" />
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <h4>About Us</h4>
+
+        <p class="lead">
+          DogDojo is a fake store that sells good dogs to good people. Browse our selection of dogs! Buy as many dogs as you want! Nothing is real.
+        </p>
+
+        <hr />
+
+        <div class="project-info text-center">
+          <i class="fa fa-info-circle info" aria-hidden="true"></i>
+          <div class="details">
+            <p>By Weston Vincze</p>
+            <p><a href="https://github.com/WestonVincze/" target="_blank"><i class="fa fa-github" aria-hidden="true"></i> view source</a></p>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
+
+  <footer>
+    <p>2020 DogDojo &copy;</p>
+  </footer>
+
   @RenderSection("Scripts", required: false)
 </body>
 </html>

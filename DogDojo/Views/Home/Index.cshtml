@@ -2,14 +2,12 @@
 
 <partial name="_Carousel" />
 
-<h2>Dogs of the Week</h2>
-<h4>Featured good dogs this week</h4>
+<h2 class="text-center orange-text">Dogs of the Week</h2>
+<h4 class="text-center">our featured good dogs</h4>
 
 <div class="row">
-
   @foreach (var dog in Model.DogsOfTheWeek)
   {
     <partial name="_DogCard" model="dog" />
   }
-
 </div>

@@ -40,16 +40,20 @@ namespace DogDojo.Controllers
       {
         _orderRepository.CreateOrder(order);
         _doggieBag.ClearBag();
-        return RedirectToAction("CheckoutComplete");
+        return RedirectToAction("CheckoutComplete", order);
       }
 
       return View(order);
     }
 
-    public IActionResult CheckoutComplete()
+    public IActionResult CheckoutComplete(Order order)
     {
-      ViewBag.CheckoutCompleteMessage = "Order Successful";
 
+      var items = _doggieBag.GetDoggieBagItems();
+      _doggieBag.DoggieBagItems = items;
+      ViewBag.CheckoutCompleteMessage = "Order Successful!";
+      ViewBag.Name = order.FirstName + " " + order.LastName;
+      ViewBag.Dogs = order.OrderDetails.Select(o => o.Dog.Name);
       return View();
     }
   }

@@ -40,20 +40,20 @@ namespace DogDojo.Migrations
                         new
                         {
                             BreedId = 1,
-                            BreedName = "Yellow Lab",
-                            Description = "A yellow colored laborador."
+                            BreedName = "Labrador Retriever",
+                            Description = "A friendly, medium-sized companion. They can be yellow, brown, and black."
                         },
                         new
                         {
                             BreedId = 2,
-                            BreedName = "Black Lab",
-                            Description = "A black colored laborador."
+                            BreedName = "Doberman",
+                            Description = "A German breed, medium-sized dog initially bred as guard dogs. They can be brown or black."
                         },
                         new
                         {
                             BreedId = 3,
-                            BreedName = "Chocolate Lab",
-                            Description = "A brown colored laborador."
+                            BreedName = "Mastiff",
+                            Description = "An ancient breed initially bred for war over 5000 years go. This rather large breed comes in a plethora of colors."
                         });
                 });
 
@@ -64,13 +64,13 @@ namespace DogDojo.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("AllergyInformation")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
 
                     b.Property<int>("BreedId")
                         .HasColumnType("int");
 
-                    b.Property<string>("ImageThumbnailUrl")
+                    b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageUrl")
@@ -82,9 +82,6 @@ namespace DogDojo.Migrations
                     b.Property<bool>("IsDogOfTheWeek")
                         .HasColumnType("bit");
 
-                    b.Property<string>("LongDescription")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -92,9 +89,12 @@ namespace DogDojo.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18, 2)");
 
-                    b.Property<string>("ShortDescription")
+                    b.Property<string>("Sex")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Size")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("DogId");
@@ -107,67 +107,86 @@ namespace DogDojo.Migrations
                         new
                         {
                             DogId = 1,
-                            BreedId = 2,
-                            ImageThumbnailUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/strawberrypiesmall.jpg",
-                            ImageUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/strawberrypie.jpg",
+                            Age = 3,
+                            BreedId = 3,
+                            Description = "Henry is a little bit shy around strangers but very gentle and calm. He gets along well with other dogs and sweet to people. Henry is very submissive and quiet and great on a leash. The ideal home is someone with gentle and social dogs (he prefers dogs smaller than him and also female). Henry is very happy and confident if he is with other dogs. He is currently in Toronto.",
+                            ImageUrl = "/images/dogs/henry.jpg",
                             IsAvailable = true,
-                            IsDogOfTheWeek = false,
-                            LongDescription = "Icing carrot cake jelly-o cheesecake. Sweet roll marzipan marshmallow toffee brownie brownie candy tootsie roll. Chocolate cake gingerbread tootsie roll oat cake pie chocolate bar cookie dragée brownie. Lollipop cotton candy cake bear claw oat cake. Dragée candy canes dessert tart. Marzipan dragée gummies lollipop jujubes chocolate bar candy canes. Icing gingerbread chupa chups cotton candy cookie sweet icing bonbon gummies. Gummies lollipop brownie biscuit danish chocolate cake. Danish powder cookie macaroon chocolate donut tart. Carrot cake dragée croissant lemon drops liquorice lemon drops cookie lollipop toffee. Carrot cake carrot cake liquorice sugar plum topping bonbon pie muffin jujubes. Jelly pastry wafer tart caramels bear claw. Tiramisu tart pie cake danish lemon drops. Brownie cupcake dragée gummies.",
-                            Name = "Strawberry Pie",
-                            Price = 15.95m,
-                            ShortDescription = "Lorem Ipsum"
+                            IsDogOfTheWeek = true,
+                            Name = "Henry",
+                            Price = 340.95m,
+                            Sex = "Male",
+                            Size = "Large"
                         },
                         new
                         {
                             DogId = 2,
+                            Age = 6,
                             BreedId = 1,
-                            ImageThumbnailUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/cheesecakesmall.jpg",
-                            ImageUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/cheesecake.jpg",
+                            Description = "If her soft, velvety ears, and kind, brown eyes don't you win you over, her personality sure will. This girl's a gem. Sweet, loving and loyal, Terra is as adventurous as she is affectionate. Every day a new adventure. She lives for car rides (front seat or back!), trail runs (she is the fastest!), and dog parks (squirrels?). After a long day of exploring the world and chasing the odd squirrel, she loves sitting down with her people for a cuddle/pet session.",
+                            ImageUrl = "/images/dogs/terra.jpg",
                             IsAvailable = true,
                             IsDogOfTheWeek = false,
-                            LongDescription = "Icing carrot cake jelly-o cheesecake. Sweet roll marzipan marshmallow toffee brownie brownie candy tootsie roll. Chocolate cake gingerbread tootsie roll oat cake pie chocolate bar cookie dragée brownie. Lollipop cotton candy cake bear claw oat cake. Dragée candy canes dessert tart. Marzipan dragée gummies lollipop jujubes chocolate bar candy canes. Icing gingerbread chupa chups cotton candy cookie sweet icing bonbon gummies. Gummies lollipop brownie biscuit danish chocolate cake. Danish powder cookie macaroon chocolate donut tart. Carrot cake dragée croissant lemon drops liquorice lemon drops cookie lollipop toffee. Carrot cake carrot cake liquorice sugar plum topping bonbon pie muffin jujubes. Jelly pastry wafer tart caramels bear claw. Tiramisu tart pie cake danish lemon drops. Brownie cupcake dragée gummies.",
-                            Name = "Cheese cake",
-                            Price = 18.95m,
-                            ShortDescription = "Lorem Ipsum"
+                            Name = "Terra",
+                            Price = 456.95m,
+                            Sex = "Female",
+                            Size = "Medium"
                         },
                         new
                         {
                             DogId = 3,
-                            BreedId = 2,
-                            ImageThumbnailUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/rhubarbpiesmall.jpg",
-                            ImageUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/rhubarbpie.jpg",
+                            Age = 4,
+                            BreedId = 1,
+                            Description = "While sweet, shy and tiny, Lovely is the backbone, the support system of the friendship. While Daytona is out shouting at leaves and dancing up a storm for others to see, Lovely is keeping things cool, patiently waiting for Daytona to come back down to earth. She is a sweet and sensitive girl who, at the same time, can handle Daytona's high energy and sometimes headstrong attitude.",
+                            ImageUrl = "/images/dogs/daytona.jpg",
                             IsAvailable = true,
-                            IsDogOfTheWeek = true,
-                            LongDescription = "Icing carrot cake jelly-o cheesecake. Sweet roll marzipan marshmallow toffee brownie brownie candy tootsie roll. Chocolate cake gingerbread tootsie roll oat cake pie chocolate bar cookie dragée brownie. Lollipop cotton candy cake bear claw oat cake. Dragée candy canes dessert tart. Marzipan dragée gummies lollipop jujubes chocolate bar candy canes. Icing gingerbread chupa chups cotton candy cookie sweet icing bonbon gummies. Gummies lollipop brownie biscuit danish chocolate cake. Danish powder cookie macaroon chocolate donut tart. Carrot cake dragée croissant lemon drops liquorice lemon drops cookie lollipop toffee. Carrot cake carrot cake liquorice sugar plum topping bonbon pie muffin jujubes. Jelly pastry wafer tart caramels bear claw. Tiramisu tart pie cake danish lemon drops. Brownie cupcake dragée gummies.",
-                            Name = "Rhubarb Pie",
-                            Price = 15.95m,
-                            ShortDescription = "Lorem Ipsum"
+                            IsDogOfTheWeek = false,
+                            Name = "Daytona",
+                            Price = 319.99m,
+                            Sex = "Female",
+                            Size = "Medium"
                         },
                         new
                         {
                             DogId = 4,
-                            BreedId = 3,
-                            ImageThumbnailUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/rhubarbpiesmall.jpg",
-                            ImageUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/rhubarbpie.jpg",
+                            Age = 5,
+                            BreedId = 2,
+                            Description = "This boy's fixin' to move on out of the city to a place where ya'll can see the stars and here the wind blowin' through the trees. The cramped condos, the constant noise, the hustle and bustle of the city ain't him. Pardon his boldness, but city life don't amount to a hill o' beans for Scottie! It stinks to high heaven and everyone just seems to darn rushed all the time. He needs that rural calm so he can settle down, relax, and focus on his behaviour with his new family.",
+                            ImageUrl = "/images/dogs/scottie.jpg",
                             IsAvailable = true,
                             IsDogOfTheWeek = true,
-                            LongDescription = "Icing carrot cake jelly-o cheesecake. Sweet roll marzipan marshmallow toffee brownie brownie candy tootsie roll. Chocolate cake gingerbread tootsie roll oat cake pie chocolate bar cookie dragée brownie. Lollipop cotton candy cake bear claw oat cake. Dragée candy canes dessert tart. Marzipan dragée gummies lollipop jujubes chocolate bar candy canes. Icing gingerbread chupa chups cotton candy cookie sweet icing bonbon gummies. Gummies lollipop brownie biscuit danish chocolate cake. Danish powder cookie macaroon chocolate donut tart. Carrot cake dragée croissant lemon drops liquorice lemon drops cookie lollipop toffee. Carrot cake carrot cake liquorice sugar plum topping bonbon pie muffin jujubes. Jelly pastry wafer tart caramels bear claw. Tiramisu tart pie cake danish lemon drops. Brownie cupcake dragée gummies.",
-                            Name = "Rhubarb Pie",
-                            Price = 15.95m,
-                            ShortDescription = "Lorem Ipsum"
+                            Name = "Scottie",
+                            Price = 512.95m,
+                            Sex = "Male",
+                            Size = "Medium"
                         },
                         new
                         {
                             DogId = 5,
+                            Age = 1,
                             BreedId = 2,
-                            ImageThumbnailUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/pumpkinpiesmall.jpg",
-                            ImageUrl = "https://gillcleerenpluralsight.blob.core.windows.net/files/pumpkinpie.jpg",
+                            Description = "Walking advertisement for Herbal Essences and three-time male model of the year, Olso is beginning to realize there is more to life than being ridiculously good looking. Yes he likes flipping his lion's mane from side to side, yes he likes strutting his stuff for all to see. But he'd really wish someone would come and be his bestest friend forever. Why not? This boy just wants to chill. Being ridiculously good looking is a lot harder than it looks you know. People are always expecting him to smile and be ready for the camera. Gah! Some days he just wants to cruise around listening to Wham! while sipping on puppuccinos with a tight group of humans. Oslo can be a little cliquey. He's a wine and dine kinda guy who makes you work for his friendship. Models usually are. But deep down he's got a lot of love to give. He just needs to learn to trust. Once you show Oslo you're on his team, he is the epitome of loyal companion and will be a friend for life.",
+                            ImageUrl = "/images/dogs/oslo.jpg",
+                            IsAvailable = true,
+                            IsDogOfTheWeek = false,
+                            Name = "Oslo",
+                            Price = 257.56m,
+                            Sex = "Male",
+                            Size = "Small"
+                        },
+                        new
+                        {
+                            DogId = 6,
+                            Age = 12,
+                            BreedId = 1,
+                            Description = "A good boy who loves attention. You couldn't ask for a better dog! He's a sweet lad who would never hurt a fly. He loves to explore and is aptly named after Curious George for his wonderous personality. He's always sniffing and exploring and still has a lot of energy for his age so he needs frequent walks! He can be nervous when it comes to bathing and medicating, but he's always excited to be finsihed. He'll always greet you when you come home with a wagging tale and a goofy smile.",
+                            ImageUrl = "/images/dogs/george.jpg",
                             IsAvailable = true,
                             IsDogOfTheWeek = true,
-                            LongDescription = "Icing carrot cake jelly-o cheesecake. Sweet roll marzipan marshmallow toffee brownie brownie candy tootsie roll. Chocolate cake gingerbread tootsie roll oat cake pie chocolate bar cookie dragée brownie. Lollipop cotton candy cake bear claw oat cake. Dragée candy canes dessert tart. Marzipan dragée gummies lollipop jujubes chocolate bar candy canes. Icing gingerbread chupa chups cotton candy cookie sweet icing bonbon gummies. Gummies lollipop brownie biscuit danish chocolate cake. Danish powder cookie macaroon chocolate donut tart. Carrot cake dragée croissant lemon drops liquorice lemon drops cookie lollipop toffee. Carrot cake carrot cake liquorice sugar plum topping bonbon pie muffin jujubes. Jelly pastry wafer tart caramels bear claw. Tiramisu tart pie cake danish lemon drops. Brownie cupcake dragée gummies.",
-                            Name = "Pumpkin Pie",
-                            Price = 12.95m,
-                            ShortDescription = "Lorem Ipsum"
+                            Name = "George",
+                            Price = 699.95m,
+                            Sex = "Male",
+                            Size = "Medium"
                         });
                 });
 
@@ -428,10 +447,12 @@ namespace DogDojo.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(128)")
+                        .HasMaxLength(128);
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(128)")
+                        .HasMaxLength(128);
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -468,10 +489,12 @@ namespace DogDojo.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(128)")
+                        .HasMaxLength(128);
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(128)")
+                        .HasMaxLength(128);
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");

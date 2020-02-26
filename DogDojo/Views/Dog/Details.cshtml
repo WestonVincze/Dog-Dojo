@@ -1,23 +1,66 @@
 ﻿@model Dog
 
-<h2>@Model.Name</h2>
 
-<div class="thumbnail">
-  <img alt="@Model.Name" src="@Model.ImageUrl" />
-  <div class="caption-full">
-    <h3 class="pull-right">@Model.Price</h3>
-    <h3>
-      <a href="#">@Model.Name</a>
-    </h3>
-    <h4>@Model.ShortDescription</h4>
-    <p>@Model.LongDescription</p>
-    <div class="addToCart">
-      <p class="button">
+  <div class="details">
+    <div class="row">
+      <div class="col-12">
+        <img class="img-fluid rounded" alt="@Model.Name" src="@Model.ImageUrl" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <h2 class="text-center orange-text">
+          About @Model.Name
+        </h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <p>@Model.Description</p>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-10 offset-1">
+        <table class="table table-striped table-sm table-bordered">
+          <tr>
+            <td>Age</td>
+            <td>@Model.Age</td>
+          </tr>
+          <tr>
+            <td>Sex</td>
+            <td>@Model.Sex</td>
+          </tr>
+          <tr>
+            <td>Size</td>
+            <td>@Model.Size</td>
+          </tr>
+          <tr>
+            <td>Available?</td>
+            <td>@(Model.IsAvailable ? "Yes" : "No")</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <h4 class="text-center">@Model.Price.ToString("c")</h4>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 text-center">
         <a class="btn btn-primary"
            asp-controller="DoggieBag"
            asp-action="AddToDoggieBag"
-           asp-route-dogId="@Model.DogId">Add to bag</a>
-      </p>
+           asp-route-dogId="@Model.DogId">
+          <i class="fa fa-fw fa-shopping-bag orange-text"></i>
+          Add to bag
+        </a>
+      </div>
     </div>
   </div>
-</div>

@@ -1,67 +1,63 @@
-﻿/*!
- * Start Bootstrap - Shop Homepage (http://startbootstrap.com/)
- * Copyright 2013-2016 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
- */
-
-body {
+﻿body {
   padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-  background-image: url('/images/pattern.png');
-  background-repeat: repeat;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+a, a:hover {
+  color: #f68d41;
+}
+
+hr {
+  border-color: #000;
+}
+
+.container {
+  flex: 1;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
 }
 
 .lead img {
   max-width: 100%;
 }
 
-.caption {
-  height: 130px;
-  overflow: hidden;
-}
-
-  .caption h4 {
-    white-space: nowrap;
-  }
-
-.thumbnail img {
-  width: 100%;
-}
-
-.addToCart {
-  padding-right: 10px;
-  padding-left: 10px;
-}
-
-.thumbnail {
-  padding: 0;
-}
-
-  .thumbnail .caption-full {
-    padding: 9px;
-    color: #333;
-  }
-
 footer {
-  margin: 50px 0;
+  text-align: center;
+  padding: 10px 0;
+  background-color: #666;
+}
+
+  footer p {
+    color: white;
+    margin: 0;
+  }
+
+.navbar-toggler {
+  color: white;
 }
 
 .navbar {
   background-image: none;
 }
 
-.navbar-inverse {
-  background-color: #a593c2;
-  border-color: #a593c2;
+.navbar button, .navbar a.nav-link {
+  font-size: 1.2em;
+  color: #eee;
 }
 
-.nav a {
-  color: white;
-  font-size: 1.2em;
+.navbar-inverse {
+  background-color: #666;
 }
 
 .nav .dropdown-item a {
-  color: #a593c2;
+  color: #000;
+}
+
+.orange-text {
+  color: #f68d41!important;
 }
 
 .item img {
@@ -70,13 +66,85 @@ footer {
   left: 0;
   min-height: 400px;
 }
+.project-info {
+  width: 100%;
+  border-radius: 5px;
+  clip-path: circle(30px at 50% 10px);
+  transition: all .5s ease-in-out;
+  background-color: #f68d41;
+  justify-items: center;
+  align-items: center;
+  padding: 5px;
+  color: #fff;
+  font-size: 1.25rem;
+}
+  
+  .project-info a {
+    color: #fff;
+  }
 
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
-  background-color: #fcaeae !important;
-  border-color: #fba1a1 !important;
+  .project-info a:hover {
+    color: #fff;
+  }
+
+  .project-info:hover {
+    clip-path: circle(100% at 50% 50%);
+  }
+
+  .project-info .info {
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  .dog-card {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+  }
+
+  .card-image {
+    overflow: hidden;
+    border-radius: 5px;
+  }
+
+  .card-image img {
+    transition: transform .3s ease;
+  }
+
+  .card-image:hover img {
+    transform: scale(1.1);
+  }
+
+  .details {
+    /* container for details page */
+  }
+
+/* Bootstrap modifications */
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary .btn-link{
+  background-color: #fbb785 !important;
+  border-color: #fbb785 !important;
 }
 
-.btn {
-  background-color: #fcaeae !important;
-  border-color: #fba1a1 !important;
+.btn-primary  {
+  background-color: #666 !important;
+  border-color: #666 !important;
 }
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  background-color: #fbb785;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+  background-color: #666;
+}
+
+.dropdown-item {
+  padding: 0;
+}
+
+  .dropdown-item a {
+    padding: 0.25rem 1.5rem;
+    display: block;
+  }
