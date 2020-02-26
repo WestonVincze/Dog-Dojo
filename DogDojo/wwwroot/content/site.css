@@ -117,8 +117,8 @@ footer {
     transform: scale(1.1);
   }
 
-  .details {
-    /* container for details page */
+  .details, .doggie-bag {
+    margin-bottom: 15px;
   }
 
 /* Bootstrap modifications */

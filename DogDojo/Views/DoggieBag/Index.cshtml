@@ -4,40 +4,42 @@
   ViewData["Title"] = "Doggie Bag";
 }
 
-<h2>Your doggie bag</h2>
-<h4>All the dogs inside your doggie bag.</h4>
-<table class="table table-bordered table-striped table-sm">
-  <thead>
-    <tr>
-      <th>Selected amount</th>
-      <th>Dog</th>
-      <th class="text-right">Price</th>
-      <th class="text-right">Subtotal</th>
-    </tr>
-  </thead>
-  <tbody>
-    @foreach (var line in Model.DoggieBag.DoggieBagItems)
-    {
+<div class="doggie-bag">
+  <h2>Your doggie bag</h2>
+  <h4>All the dogs inside your doggie bag.</h4>
+  <table class="table table-bordered table-striped table-sm">
+    <thead>
       <tr>
-        <td class="text-center">@line.Amount</td>
-        <td class="text-left">@line.Dog.Name</td>
-        <td class="text-right">@line.Dog.Price.ToString("c")</td>
+        <th>Selected amount</th>
+        <th>Dog</th>
+        <th class="text-right">Price</th>
+        <th class="text-right">Subtotal</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var line in Model.DoggieBag.DoggieBagItems)
+      {
+        <tr>
+          <td class="text-center">@line.Amount</td>
+          <td class="text-left">@line.Dog.Name</td>
+          <td class="text-right">@line.Dog.Price.ToString("c")</td>
+          <td class="text-right">
+            @((line.Amount * line.Dog.Price).ToString("c"))
+          </td>
+        </tr>
+      }
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3" class="text-right">Total:</td>
         <td class="text-right">
-          @((line.Amount * line.Dog.Price).ToString("c"))
+          @Model.DoggieBagTotal.ToString("c")
         </td>
       </tr>
-    }
-  </tbody>
-  <tfoot>
-    <tr>
-      <td colspan="3" class="text-right">Total:</td>
-      <td class="text-right">
-        @Model.DoggieBagTotal.ToString("c")
-      </td>
-    </tr>
-  </tfoot>
-</table>
+    </tfoot>
+  </table>
 
-<div class="text-center">
-  <a asp-action="Checkout" asp-controller="Order" class="btn btn-primary">Check out now!</a>
+  <div class="text-center">
+    <a asp-action="Checkout" asp-controller="Order" class="btn btn-primary">Check out now!</a>
+  </div>
 </div>
