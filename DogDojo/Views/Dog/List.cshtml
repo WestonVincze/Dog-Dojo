@@ -1,4 +1,9 @@
 ﻿@model DogListViewModel
+
+@{
+  ViewData["Title"] = Model.CurrentBreed + 's';
+}
+
 <h1>@(Model.CurrentBreed + 's')</h1>
 
 <div class="row">
