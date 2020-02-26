@@ -1,22 +1,9 @@
 ﻿
 <h1>@ViewBag.CheckoutCompleteMessage</h1>
+
 <hr />
 
-<h3>Thank you for your order, @ViewBag.Name!</h3>
+<h3>Thank you for your order, <span class="orange-text">@ViewBag.Name!</span></h3>
 
-<h4>These are the dogs you requested: @ViewBag.OrderDetails</h4>
-<table class="table table-striped">
-  <tr>
-    <th>Name</th>
-    <th>Price</th>
-  </tr>
-  @foreach (var od in @ViewBag.Dogs)
-  {
-    <tr>
-      <td>@od.Dog.Name</td>
-      <td>@od.Dog.Price.ToString("c")</td>
-    </tr>
-  }
-</table>
 
-<h4>You should recieve your dog within 3 business days.</h4>
+<h4>You should recieve your order within 3 business days.</h4>
