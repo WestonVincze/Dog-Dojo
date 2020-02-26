@@ -48,10 +48,7 @@ namespace DogDojo.Controllers
 
     public IActionResult CheckoutComplete(Order order)
     {
-
-      var items = _doggieBag.GetDoggieBagItems();
-      _doggieBag.DoggieBagItems = items;
-      ViewBag.CheckoutCompleteMessage = "Order Successful!";
+      ViewBag.CheckoutCompleteMessage = "Order Successful";
       ViewBag.Name = order.FirstName + " " + order.LastName;
       ViewBag.Dogs = order.OrderDetails.Select(o => o.Dog.Name);
       return View();
